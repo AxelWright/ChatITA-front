@@ -22,8 +22,7 @@ export function LoginScreen() {
       </Text>
 
       <Text style={styles.info as TextStyle}>
-        Debes de tener al menos 16 años de edad para registrarte. Más
-        información sobre cómo trabaja ChatApp en las políticas.
+        Debes de tener al menos 18 años de edad para registrarte en ChatITA.
       </Text>
     </View>
   );

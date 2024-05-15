@@ -1,4 +1,4 @@
-import { SafeAreaView, View, Text, Image, ImageSourcePropType, TextStyle, ViewStyle, ImageStyle } from 'react-native';
+import { SafeAreaView, View, Text, Image, TextStyle, ViewStyle, ImageStyle } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { screens } from '../../../utils';
 import { assets } from '../../../assets';
@@ -16,14 +16,12 @@ export function AuthStartScreen() {
       <Image source={assets.image.jpg.auth01} style={styles.img as ImageStyle} />
 
       <View>
-        <Text style={styles.title as TextStyle}>Te damos la bienvenida a ChatApp</Text>
+        <Text style={styles.title as TextStyle}>Te damos la bienvenida a ChatITA</Text>
         <Text style={styles.description as TextStyle}>
-          Recomendamos usar este servicio con responsabilidad para disfrutar de
-          la experiencia que proporciona esta app desarrollada con cariño
+          Una app desarrollada por y para estudiantes del ITA. Esta app no es un intento de clonar WhatsApp ni toma inspiración de ella, para nada. En lo absoluto :)
         </Text>
         <Text style={styles.description as TextStyle}>
-          Consulta nuestras Política de privacidad. Pulsa "Aceptar y continuar"
-          para aceptar las Condiciones del servicio
+          Este programa es público, ajeno a cualquier partido político. Queda prohibido el uso para fines distintos a los establecidos en el programa.
         </Text>
 
         <Text style={styles.btn as TextStyle} onPress={goToLogin}>

@@ -37,7 +37,7 @@ export function LoginForm() {
     <View>
       <View style={styles.viewInput}>
         <Input
-          placeholder="Correo electronico"
+          placeholder="Correo electrónico"
           variant="unstyled"
           autoCapitalize={false}
           value={formik.values.email}
@@ -58,7 +58,7 @@ export function LoginForm() {
         onPress={formik.handleSubmit}
         isLoading={formik.isSubmitting}
       >
-        ENTRAR
+        INICIAR SESIÓN
       </Button>
     </View>
   );

@@ -29,7 +29,7 @@ export function RegisterForm() {
     <View>
       <View style={styles.viewInput}>
         <Input
-          placeholder="Correo electronico"
+          placeholder="Correo electrónico"
           variant="unstyled"
           autoCapitalize={false}
           value={formik.values.email}
