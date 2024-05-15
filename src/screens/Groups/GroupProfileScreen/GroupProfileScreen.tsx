@@ -7,17 +7,27 @@ import { useAuth } from "../../../hooks";
 import { GroupProfile } from "../../../components/Group";
 import { styles } from "./GroupProfileScreen.styles";
 
+// Define the structure for a group object
+interface GroupType {
+  // Define properties of a group object here
+}
+
+// Create an instance of the Group controller
 const groupController = new Group();
 
+// GroupProfileScreen component
 export function GroupProfileScreen() {
-  const { params } = useRoute();
+  const { params } = useRoute<any>(); // Use any or a more specific type for route parameters
   const navigation = useNavigation();
   const { accessToken } = useAuth();
-  const [group, setGroup] = useState(null);
-  const [reload, setReload] = useState(false);
+  // Use state to manage the group object and reload flag
+  const [group, setGroup] = useState<GroupType | null>(null);
+  const [reload, setReload] = useState<boolean>(false);
 
+  // Function to toggle the reload state
   const onReload = () => setReload((prevState) => !prevState);
 
+  // Fetch group details when the component mounts or reload state changes
   useEffect(() => {
     (async () => {
       try {
@@ -30,11 +40,13 @@ export function GroupProfileScreen() {
         console.error(error);
       }
     })();
-  }, [params.groupId, reload]);
+  }, [accessToken, params.groupId, reload]);
 
+  // Function to handle exiting the group
   const exitGroup = async () => {
     try {
       await groupController.exit(accessToken, params.groupId);
+      // Go back twice to return to the previous screen before the current one
       navigation.goBack();
       navigation.goBack();
     } catch (error) {
@@ -42,8 +54,10 @@ export function GroupProfileScreen() {
     }
   };
 
+  // Return null if the group is not loaded yet
   if (!group) return null;
 
+  // Render the group profile screen with group info and participants
   return (
     <ScrollView style={styles.content}>
       <GroupProfile.Info group={group} setGroup={setGroup} />
@@ -51,7 +65,7 @@ export function GroupProfileScreen() {
 
       <View style={styles.actionsContent}>
         <Button colorScheme="secondary" onPress={exitGroup}>
-          Salir del grupo
+          Leave Group
         </Button>
       </View>
     </ScrollView>
