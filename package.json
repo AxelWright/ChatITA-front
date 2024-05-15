@@ -6,16 +6,18 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "ts:check": "tsc"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
+    "@gluestack-ui/themed-native-base": "^0.1.107-alpha2",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-navigation/bottom-tabs": "^6.5.2",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
-    "expo": "51",
-    "expo-camera": "~15.0.5",
+    "expo": "~51.0.6",
+    "expo-camera": "~15.0.8",
     "expo-image-picker": "~15.0.4",
     "expo-status-bar": "~1.12.1",
     "formik": "^2.2.9",
@@ -31,6 +33,7 @@
     "react-native-svg": "15.2.0",
     "react-search-input": "^0.11.3",
     "socket.io-client": "^4.5.4",
+    "typescript": "~5.3.3",
     "yup": "^0.32.11"
   },
   "devDependencies": {
