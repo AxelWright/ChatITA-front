@@ -18,7 +18,7 @@ export function AuthStartScreen() {
       <View>
         <Text style={styles.title as TextStyle}>Te damos la bienvenida a ChatITA</Text>
         <Text style={styles.description as TextStyle}>
-          Una app desarrollada por y para estudiantes del ITA. Esta app no es un intento de clonar WhatsApp ni toma inspiración de ella, para nada. En lo absoluto :)
+          Una app desarrollada por y para estudiantes del ITA.
         </Text>
         <Text style={styles.description as TextStyle}>
           Este programa es público, ajeno a cualquier partido político. Queda prohibido el uso para fines distintos a los establecidos en el programa.
