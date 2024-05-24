@@ -1,19 +1,26 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { View } from "react-native";
 import { IconButton, CloseIcon, Icon } from "native-base";
-import { Camera, FlashMode, CameraType } from "expo-camera";
+import { Camera, FlashMode, CameraType, CameraCapturedPicture } from "expo-camera";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { PhotoCapture } from "../../../components/Shared";
 import { styles } from "./CameraScreen.styles";
 
+type RouteParams = {
+  type: string;
+  id: string;
+};
+
+type CameraScreenRouteProp = RouteProp<{ params: RouteParams }, 'params'>;
+
 export function CameraScreen() {
   const navigation = useNavigation();
-  const { params } = useRoute();
-  const [photo, setPhoto] = useState(null);
+  const { params } = useRoute<CameraScreenRouteProp>();
+  const [photo, setPhoto] = useState<CameraCapturedPicture | null>(null);
   const [flashOn, setFlashOn] = useState(false);
   const [cameraBack, setCameraBack] = useState(true);
-  const cameraRef = useRef();
+  const cameraRef = useRef<Camera>(null);
 
   const onClose = () => navigation.goBack();
 
@@ -22,9 +29,11 @@ export function CameraScreen() {
   const changeTypeCamera = () => setCameraBack((prevState) => !prevState);
 
   const captureImage = async () => {
-    const options = { quality: 1 };
-    const newPhoto = await cameraRef.current.takePictureAsync(options);
-    setPhoto(newPhoto);
+    if (cameraRef.current) {
+      const options = { quality: 1 };
+      const newPhoto = await cameraRef.current.takePictureAsync(options);
+      setPhoto(newPhoto);
+    }
   };
 
   if (photo) {

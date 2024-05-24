@@ -20,9 +20,7 @@ export function AuthStartScreen() {
         <Text style={styles.description as TextStyle}>
           Una app desarrollada por y para estudiantes del ITA.
         </Text>
-        <Text style={styles.description as TextStyle}>
-          Este programa es público, ajeno a cualquier partido político. Queda prohibido el uso para fines distintos a los establecidos en el programa.
-        </Text>
+        
 
         <Text style={styles.btn as TextStyle} onPress={goToLogin}>
           Aceptar y continuar

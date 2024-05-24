@@ -1,4 +1,4 @@
-export function imageExpoFormat(uri: string) {
+export function imageExpoFormat(uri) {
   let filename = uri.split("/").pop();
 
   let match = /\.(\w+)$/.exec(filename);

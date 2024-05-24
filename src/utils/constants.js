@@ -1,4 +1,4 @@
-const SERVER_IP = "192.168.100.91:3977"; //IP Local de la PC con servidor + :3977
+const SERVER_IP = "192.168.1.91:3977"; //IP Local de la PC con servidor + :3977
 
 export const ENV = {
   SERVER_IP: SERVER_IP,

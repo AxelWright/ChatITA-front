@@ -1,3 +1,4 @@
+import React from 'react';
 import { View } from "react-native";
 import { Input, Button } from "native-base";
 import { useFormik } from "formik";
@@ -15,7 +16,7 @@ export function LoginForm() {
     initialValues: initialValues(),
     validationSchema: validationSchema(),
     validateOnChange: false,
-    onSubmit: async (formValue) => {
+    onSubmit: async (formValue: { email: string; password: string }) => {
       try {
         const response = await authController.login(
           formValue.email,
@@ -39,7 +40,7 @@ export function LoginForm() {
         <Input
           placeholder="Correo electrónico"
           variant="unstyled"
-          autoCapitalize={false}
+          autoCapitalize="none"
           value={formik.values.email}
           onChangeText={(text) => formik.setFieldValue("email", text)}
           style={[styles.input, formik.errors.email && styles.inputError]}

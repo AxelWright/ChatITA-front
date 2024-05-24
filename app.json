@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.xagustin93.chatapp"
+      "package": "com.axelramoss.chatapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"

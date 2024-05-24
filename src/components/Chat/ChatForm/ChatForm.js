@@ -21,7 +21,7 @@ export function ChatForm(props) {
       const { startCoordinates } = e;
 
       if (Platform.OS === "ios") {
-        setKeyboardHeight(startCoordinates.height + 65);
+        setKeyboardHeight(startCoordinates.height + 25);
       }
     });
 
